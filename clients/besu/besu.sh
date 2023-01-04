@@ -152,6 +152,8 @@ if [ "$HIVE_TERMINAL_TOTAL_DIFFICULTY" != "" ]; then
     RPCFLAGS="$RPCFLAGS --engine-host-allowlist=* --engine-jwt-enabled --engine-jwt-secret /jwtsecret"
 fi
 
+FLAGS="$FLAGS --tx-pool-limit-by-account-percentage=0.01"
+
 # Start Besu.
 if [ -z "$HAS_IMPORT" ]; then
     cmd="$besu $FLAGS $RPCFLAGS"
